@@ -492,7 +492,7 @@ RUN mkdir -p /opt/data && chmod 0644 /opt/hermes/tools/facts.json && \
     rm -f /opt/hermes/.venv/.lock /opt/hermes/pm-runtime/.lock
 # Build helpers use system Python above; TUI gateway children need the sealed runtime.
 ENV HERMES_PYTHON=/opt/hermes/.venv/bin/python
-VOLUME [ "/opt/data" ]
+# No VOLUME: Railway rejects it. Mount /opt/data explicitly (compose, Railway Volume).
 
 # The image ENTRYPOINT is a tiny dispatcher rather than `/init` directly.
 # When the image really owns PID 1 (normal Docker / Podman), the dispatcher

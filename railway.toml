@@ -1,0 +1,6 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "/opt/hermes/docker/entrypoint-dispatch.sh hermes dashboard --host 0.0.0.0 --port 9119 --skip-build --no-open"
