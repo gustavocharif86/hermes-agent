@@ -251,6 +251,7 @@ def mount_spa(application: FastAPI):
 _BUILTIN_DASHBOARD_THEMES = [
     {"name": "default",       "label": "Hermes Teal",         "description": "Classic dark teal — the canonical Hermes look"},
     {"name": "default-large", "label": "Hermes Teal (Large)", "description": "Hermes Teal with bigger fonts and roomier spacing"},
+    {"name": "jarvis",        "label": "J.A.R.V.I.S.",        "description": "Arc-reactor cyan HUD — holographic panels on deep navy"},
     {"name": "nous-blue",     "label": "Nous Blue",           "description": "Light mode — vivid Nous-blue accents on cream canvas"},
     {"name": "midnight",      "label": "Midnight",            "description": "Deep blue-violet with cool accents"},
     {"name": "ember",     "label": "Ember",          "description": "Warm crimson and bronze — forge vibes"},

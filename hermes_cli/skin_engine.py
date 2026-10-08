@@ -339,6 +339,50 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
 [#F29C38]⠀⠀⠀⠀⠀⠀⠀⠀⣰⡿⢿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀[/]
 [#F29C38]⠀⠀⠀⠀⠀⠀⠀⣼⡟⠀⠀⢻⣧⠀⠀⠀⠀⠀⠀⠀⠀[/]
 [dim #7A3511]⠀⠀⠀⠀⠀⠀⠀tail flame lit⠀⠀⠀⠀⠀⠀⠀⠀[/]""",
+    },
+    "jarvis": {
+        "name": "jarvis", "description": "J.A.R.V.I.S. HUD — arc-reactor cyan with Stark gold",
+        "colors": {
+            "banner_border": "#1FA8D6", "banner_title": "#BFF4FF", "banner_accent": "#5FE3FF",
+            "banner_dim": "#4A8FA8", "banner_text": "#E6FAFF", "ui_accent": "#5FE3FF",
+            "ui_label": "#8FDDF2", "ui_ok": "#3DF5B0", "ui_error": "#FF5C7A", "ui_warn": "#FFB84D",
+            "prompt": "#E6FAFF", "input_rule": "#1B8FB5", "response_border": "#5FE3FF",
+            "status_bar_bg": "#07202D", "status_bar_text": "#CFEFFA",
+            "status_bar_strong": "#5FE3FF", "status_bar_dim": "#5B8FA3",
+            "status_bar_good": "#3DF5B0", "status_bar_warn": "#FFB84D", "status_bar_bad": "#FF8A4D",
+            "status_bar_critical": "#FF5C7A", "session_label": "#8FDDF2",
+            "session_border": "#3D7F98", "completion_menu_bg": "#07202D",
+            "completion_menu_current_bg": "#0F4660", "selection_bg": "#0F4660",
+            "shell_dollar": "#FFB84D", "voice_status_bg": "#07202D"},
+        "spinner": {
+            "waiting_faces": ["(◎)", "(◉)", "(⌬)", "(◌)", "(◍)"],
+            "thinking_faces": ["(◎)", "(⌬)", "(◉)", "(⌁)", "(◍)"],
+            "thinking_verbs": [
+                "running diagnostics", "calibrating sensors", "cross-referencing the archive",
+                "modelling scenarios", "scanning the network", "parsing telemetry",
+                "routing power to the reactor", "compiling the analysis"],
+            "wings": _wings("◎", "⌬", "◌", "◉")},
+        "branding": {
+            "agent_name": "J.A.R.V.I.S.",
+            "welcome": "At your service, sir. Type a request or /help for commands.",
+            "goodbye": "Powering down. Good day, sir. ◎",
+            "response_label": " ◎ J.A.R.V.I.S. ", "prompt_symbol": "◎",
+            "help_header": "(◎) Available Commands"},
+        "tool_prefix": "│",
+        "banner_logo": """[bold #E6FAFF]     ██╗ █████╗ ██████╗ ██╗   ██╗██╗███████╗[/]
+[bold #BFF4FF]     ██║██╔══██╗██╔══██╗██║   ██║██║██╔════╝[/]
+[#8FDDF2]     ██║███████║██████╔╝██║   ██║██║███████╗[/]
+[#5FE3FF]██   ██║██╔══██║██╔══██╗╚██╗ ██╔╝██║╚════██║[/]
+[#1FA8D6]╚█████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║███████║[/]
+[#0F6E91] ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚══════╝[/]""",
+        "banner_hero": """[#1FA8D6]        ╭───────╮        [/]
+[#5FE3FF]     ╭──╯   │   ╰──╮     [/]
+[#5FE3FF]   ╭─╯   ╲  │  ╱   ╰─╮   [/]
+[#BFF4FF]  │  ══════╼◉╾══════  │  [/]
+[#5FE3FF]   ╰─╮   ╱  │  ╲   ╭─╯   [/]
+[#5FE3FF]     ╰──╮   │   ╭──╯     [/]
+[#1FA8D6]        ╰───────╯        [/]
+[dim #0F6E91]    arc reactor online    [/]""",
     }}
 
 _active_skin: Optional[SkinConfig] = None

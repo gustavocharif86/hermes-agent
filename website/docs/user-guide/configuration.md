@@ -3069,7 +3069,7 @@ Configuration for the [web dashboard](./features/web-dashboard.md) — visual th
 
 ```yaml
 dashboard:
-  theme: "default"            # "default" | "midnight" | "ember" | "mono" | "cyberpunk" | "rose"
+  theme: "default"            # "default" | "midnight" | "ember" | "mono" | "cyberpunk" | "rose" | "jarvis"
   show_token_analytics: false # Re-enable the (local-estimate-only) token/cost analytics surfaces
   public_url: ""              # Full public authority for OAuth redirect_uri (env: HERMES_DASHBOARD_PUBLIC_URL)
   trusted_proxies: []         # Proxy IPs/CIDRs allowed to supply X-Forwarded-* headers

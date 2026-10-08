@@ -41,6 +41,7 @@ display:
 | `poseidon` | Ocean-god theme — deep blue and seafoam | `Poseidon Agent` | Deep blue to seafoam gradient. Ocean-themed spinners ("charting currents", "sounding the depth"). Trident ASCII art banner. |
 | `sisyphus` | Sisyphean theme — austere grayscale with persistence | `Sisyphus Agent` | Light grays with stark contrast. Boulder-themed spinners ("pushing uphill", "resetting the boulder", "enduring the loop"). Boulder-and-hill ASCII art banner. |
 | `charizard` | Volcanic theme — burnt orange and ember | `Charizard Agent` | Warm burnt orange to ember gradient. Fire-themed spinners ("banking into the draft", "measuring burn"). Dragon-silhouette ASCII art banner. |
+| `jarvis` | J.A.R.V.I.S. HUD — arc-reactor cyan with Stark gold | `J.A.R.V.I.S.` | Arc-reactor cyan on deep navy with gold warnings. Assistant-style spinners ("running diagnostics", "calibrating sensors") and a reactor ASCII banner. Pairs with the `jarvis` dashboard theme. |
 
 ### On the Desktop app
 

@@ -243,9 +243,146 @@ export const defaultLargeTheme: DashboardTheme = {
   },
 };
 
+/** HUD overlay for the Jarvis theme: blueprint grid, slow scan band, glowing headings. */
+const JARVIS_CUSTOM_CSS = `
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(25, 211, 255, 0.10), transparent 70%),
+    radial-gradient(circle at 100% 100%, rgba(255, 184, 77, 0.06), transparent 45%),
+    linear-gradient(rgba(25, 211, 255, 0.045) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgba(25, 211, 255, 0.045) 1px, transparent 1px) 0 0 / 48px 48px;
+  mix-blend-mode: screen;
+}
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 160px;
+  z-index: 2147483000;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(25, 211, 255, 0.07) 70%, rgba(25, 211, 255, 0.16) 100%);
+  border-bottom: 1px solid rgba(25, 211, 255, 0.25);
+  transform: translateY(-160px);
+  animation: hermes-jarvis-scan 9s linear infinite;
+}
+@keyframes hermes-jarvis-scan {
+  to { transform: translateY(100vh); }
+}
+@keyframes hermes-jarvis-pulse {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+h1, h2, h3, .font-expanded {
+  font-family: var(--theme-font-display);
+  letter-spacing: 0.14em;
+  text-shadow: 0 0 12px rgba(25, 211, 255, 0.4);
+}
+#app-sidebar nav a[aria-current="page"] {
+  text-shadow: 0 0 10px rgba(25, 211, 255, 0.7);
+  animation: hermes-jarvis-pulse 3.2s ease-in-out infinite;
+}
+:focus-visible {
+  outline: 1px solid #19d3ff;
+  box-shadow: 0 0 0 3px rgba(25, 211, 255, 0.22);
+}
+::selection {
+  background: rgba(25, 211, 255, 0.3);
+  color: #ffffff;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1b8fb5 transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  body::after { display: none; }
+  #app-sidebar nav a[aria-current="page"] { animation: none; }
+}
+`;
+
+/**
+ * J.A.R.V.I.S.-style HUD: deep navy canvas, arc-reactor cyan, Stark gold for
+ * warnings, chamfered panels, a blueprint grid and a slow scan band. Purely
+ * visual — all chrome comes from tokens, `componentStyles` and `customCSS`.
+ */
+export const jarvisTheme: DashboardTheme = {
+  name: "jarvis",
+  label: "J.A.R.V.I.S.",
+  description: "Arc-reactor cyan HUD — holographic panels on deep navy",
+  palette: {
+    background: { hex: "#02070d", alpha: 1 },
+    midground: { hex: "#8be9ff", alpha: 1 },
+    foreground: { hex: "#ffffff", alpha: 0 },
+    warmGlow: "rgba(25, 211, 255, 0.35)",
+    noiseOpacity: 0,
+  },
+  typography: {
+    ...DEFAULT_TYPOGRAPHY,
+    fontSans: `"Exo 2", ${SYSTEM_SANS}`,
+    fontMono: `"JetBrains Mono", ${SYSTEM_MONO}`,
+    fontDisplay: `"Orbitron", "Exo 2", ${SYSTEM_SANS}`,
+    fontUrl:
+      "https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700&display=swap",
+    letterSpacing: "0.015em",
+  },
+  layout: {
+    radius: "2px",
+    density: "comfortable",
+  },
+  customCSS: JARVIS_CUSTOM_CSS,
+  componentStyles: {
+    card: {
+      background:
+        "linear-gradient(90deg, #19d3ff, transparent 45%) top / 100% 1px no-repeat, linear-gradient(180deg, rgba(8, 34, 50, 0.78), rgba(2, 10, 16, 0.88))",
+      boxShadow:
+        "inset 0 0 0 1px rgba(25, 211, 255, 0.16), inset 0 0 28px rgba(25, 211, 255, 0.06)",
+      clipPath:
+        "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px))",
+    },
+    header: {
+      background: "linear-gradient(180deg, #04131c, #020a10)",
+      borderImage: "linear-gradient(90deg, transparent, #19d3ff, transparent) 1",
+    },
+    sidebar: {
+      background: "linear-gradient(180deg, #04131c 0%, #020a10 100%)",
+      borderImage:
+        "linear-gradient(180deg, transparent, #19d3ff 35%, #19d3ff 65%, transparent) 1",
+    },
+    tab: {
+      clipPath:
+        "polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%)",
+    },
+  },
+  colorOverrides: {
+    primary: "#19d3ff",
+    primaryForeground: "#02111a",
+    accent: "#0b2a3a",
+    accentForeground: "#bff4ff",
+    border: "#0e4a63",
+    ring: "#19d3ff",
+    success: "#3df5b0",
+    warning: "#ffb84d",
+    destructive: "#ff5c7a",
+  },
+  seriesColors: {
+    inputTokenAccent: "#ffb84d",
+    outputTokenAccent: "#19d3ff",
+  },
+  swatchColors: ["#02070d", "#19d3ff", "#ffb84d"],
+  terminalBackground: "#020a10",
+  terminalForeground: "#bdf3ff",
+};
+
 export const BUILTIN_THEMES: Record<string, DashboardTheme> = {
   default: defaultTheme,
   "default-large": defaultLargeTheme,
+  jarvis: jarvisTheme,
   "nous-blue": nousBlueTheme,
   midnight: midnightTheme,
   ember: emberTheme,
